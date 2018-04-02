@@ -1,0 +1,69 @@
+(common) {
+  gzip
+
+  # Strict security headers
+  header / {
+    # Enable HSTS. https://mdn.io/HSTS
+    Strict-Transport-Security "max-age=15768000"
+    # Enable stricter XSS protection. https://mdn.io/X-XSS-Protection
+    X-XSS-Protection "1; mode=block"
+    # Prevent MIME-sniffing. https://mdn.io/X-Content-Type-Options
+    X-Content-Type-Options "nosniff"
+    # Prevent clickjacking. https://mdn.io/X-Frame-Options
+    X-Frame-Options "DENY"
+  }
+}
+
+hyeon.me {
+  import common
+  root /srv/hyeon.me/public
+  errors {
+    404 404.html
+  }
+  # TODO: /static-xxxxxx.xxx 들 캐싱하기
+}
+
+kuma.hyeon.me {
+  import common
+  root /srv/kuma.hyeon.me
+  errors {
+    * index.html
+  }
+}
+
+i.hyeon.me {
+  import common
+  root /srv/i.hyeon.me
+}
+
+game.hyeon.me {
+  import common
+  root /srv/game.hyeon.me
+  redir 307 {
+    if {path} is /
+    /wbwwb/
+  }
+}
+
+rust-kr.org {
+  import common
+  root /var/opt/rust-kr.org/public
+  proxy / localhost:8000 {
+    except /static
+  }
+}
+
+snu.jokbo.me {
+  import common
+  proxy / localhost:3000
+  # TODO: location /static/files/ { alias /srv/snu.jokbo.me/files/; }
+}
+jokbo.me {
+  import common
+  redir / https://snu.jokbo.me{uri} 307
+}
+
+git.hyeon.me {
+  import common
+  proxy / localhost:8880
+}
