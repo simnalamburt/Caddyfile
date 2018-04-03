@@ -12,5 +12,6 @@ sudo cp ./Caddyfile /etc/caddy/caddy.conf
 
 ##### Reference
 - https://caddyserver.com/
+- https://github.com/simnalamburt/nginx.conf
 
 [Kerchhoffs's principle]: https://en.wikipedia.org/wiki/Kerckhoffs%27s_principle
