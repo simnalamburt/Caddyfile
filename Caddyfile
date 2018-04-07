@@ -49,8 +49,7 @@ rust-kr.org {
   import common
   root /var/opt/rust-kr.org/public
   proxy / localhost:8000 {
-    except /static
-    except /.well-known
+    except /static /.well-known
   }
 }
 
