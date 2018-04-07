@@ -49,13 +49,19 @@ rust-kr.org {
   import common
   root /var/opt/rust-kr.org/public
   proxy / localhost:8000 {
+    transparent
+    header_upstream Forwarded "for={remote}; host={host}; proto={scheme}"
+
     except /static /.well-known
   }
 }
 
 snu.jokbo.me {
   import common
-  proxy / localhost:3000
+  proxy / localhost:3000 {
+    transparent
+    header_upstream Forwarded "for={remote}; host={host}; proto={scheme}"
+  }
   # TODO: location /static/files/ { alias /srv/snu.jokbo.me/files/; }
 }
 jokbo.me {
@@ -65,5 +71,8 @@ jokbo.me {
 
 git.hyeon.me {
   import common
-  proxy / localhost:8880
+  proxy / localhost:8880 {
+    transparent
+    header_upstream Forwarded "for={remote}; host={host}; proto={scheme}"
+  }
 }
