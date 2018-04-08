@@ -20,7 +20,9 @@ hyeon.me {
   errors {
     404 404.html
   }
-  # TODO: /static-xxxxxx.xxx 들 캐싱하기
+  header /static- {
+    Cache-Control "public, max-age=315360000"
+  }
 }
 
 kuma.hyeon.me {
