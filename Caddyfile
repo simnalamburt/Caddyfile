@@ -80,3 +80,5 @@ git.hyeon.me {
     header_upstream Forwarded "for={remote}; host={host}; proto={scheme}"
   }
 }
+
+import caddy.conf.d/*.conf
