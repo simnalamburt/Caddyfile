@@ -49,11 +49,8 @@ game.hyeon.me {
 
 rust-kr.org {
   import common
-  root /var/opt/rust-kr.org/public
   proxy / localhost:8000 {
     transparent
-    header_upstream Forwarded "for={remote}; host={host}; proto={scheme}"
-    except /static /.well-known
   }
 }
 
@@ -61,7 +58,6 @@ snu.jokbo.me {
   import common
   proxy / localhost:3000 {
     transparent
-    header_upstream Forwarded "for={remote}; host={host}; proto={scheme}"
   }
 }
 snu.jokbo.me/static/files/ {
@@ -77,7 +73,6 @@ git.hyeon.me {
   import common
   proxy / localhost:8880 {
     transparent
-    header_upstream Forwarded "for={remote}; host={host}; proto={scheme}"
   }
 }
 
