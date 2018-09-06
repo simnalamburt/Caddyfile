@@ -75,5 +75,3 @@ git.hyeon.me {
     transparent
   }
 }
-
-import caddy.conf.d/*.conf
