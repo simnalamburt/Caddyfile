@@ -12,6 +12,8 @@
     # Prevent clickjacking. https://mdn.io/X-Frame-Options
     X-Frame-Options "DENY"
   }
+
+  log stdout
 }
 
 hyeon.me {
