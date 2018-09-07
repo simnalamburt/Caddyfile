@@ -47,13 +47,6 @@ game.hyeon.me {
   }
 }
 
-rust-kr.org {
-  import common
-  proxy / localhost:8000 {
-    transparent
-  }
-}
-
 snu.jokbo.me {
   import common
   proxy / localhost:3000 {
@@ -74,4 +67,22 @@ git.hyeon.me {
   proxy / localhost:8880 {
     transparent
   }
+}
+
+rust-kr.org {
+  import common
+  proxy / localhost:8000 {
+    transparent
+  }
+}
+
+langdev.org {
+  import common
+  proxy / localhost:8080 {
+    transparent
+  }
+}
+www.langdev.org {
+  import common
+  redir / https://langdev.org{uri} 307
 }
