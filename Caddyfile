@@ -57,7 +57,7 @@ snu.jokbo.me {
 }
 snu.jokbo.me/static/files/ {
   import common
-  root /srv/snu.jokbo.me/files
+  root /srv/jokbo/files
 }
 jokbo.me {
   import common
